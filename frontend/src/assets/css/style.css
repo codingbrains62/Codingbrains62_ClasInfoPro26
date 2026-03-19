@@ -1,0 +1,196 @@
+body{
+    padding: 0;
+    margin: 0 !important;
+    color: #717171 !important;
+}
+/* -------Start MainLayout css-------- */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f7fa;
+}
+.page-content {
+  flex: 1;
+  margin-top: 55px;
+  padding: 20px;
+}
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-screen {
+  height: 100vh;
+  width: 100vw;
+  background: #f5f7fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* -------End MainLayout css-------- */
+/* -------Start AppHeader css-------- */
+.header {
+  height: 55px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: #1f7fd1;
+}
+.header-left-strip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 55px;
+  width: 320px;
+  background: #003e77;
+}
+.header-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 0 40px; */
+  margin-left: 12px;
+  position: relative;
+  z-index: 2;
+}
+.left {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: white;
+}
+.menu {
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+.divider {
+  width: 1px;
+  height: 55px;
+  background: #2196f3;
+  opacity: 0.7;
+}
+.title {
+  font-weight: 400;
+  font-size: 20px;
+  margin-left: 10px;
+  color: white;
+}
+.right {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff !important;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+.profile-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.username {
+  font-weight: 500;
+  white-space: nowrap;
+}
+/* -------End AppHeader css-------- */
+/* -------Start Login view page css-------- */
+/* .login-card {
+  width: 360px;
+} */
+ .login-card {
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+    align-items: center;
+    height: calc(100vh - 133px);
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #a8a8a8;
+    background: #fff;
+}
+.p-card-title{
+ text-align: center;
+}
+.full-width {
+  width: 100%;
+}
+.mb-3 {
+  margin-bottom: 12px;
+}
+.p-inputtext {
+  border: 1px solid #a8a8a8;
+}
+
+.p-password .p-inputtext {
+  border: 1px solid #a8a8a8;
+}
+.login-btn {
+  width: 100%;
+  background: #1f7fd1;
+  border: none;
+  margin-top: 15px;
+}
+.login-btn:hover {
+  width: 100%;
+  background: #003e77;
+  border: #003e77;
+  transition: 0.2s;
+
+}
+.loginPasskey-btn {
+  width: 100%;
+  background: #1f7fd1;
+  border: none;
+}
+.loginPasskey-btn:hover{
+  width: 100%;
+  background: #003e77;
+  border: #003e77;
+  transition: 0.2s;
+}
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+.remember .p-checkbox .p-checkbox-box {
+    border: 1px solid;
+}
+.forgot {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+.forgot a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #003e77;
+  cursor: pointer;
+}
+.forgot a:hover {
+  text-decoration: underline;
+  color: #1f7fd1;
+  font-weight: 500;
+
+}
+/* .login-card :deep(.p-inputtext),
+.login-card :deep(.p-password-input) {
+  width: 100%;
+}
+
+.login-card :deep(.p-card-title) {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+} */
+/* -------End Login view page css---------- */

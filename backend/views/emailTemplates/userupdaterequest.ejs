@@ -1,0 +1,48 @@
+<h2 style="color:#d17f1f; margin-top:0;">
+  User Profile Edit Request
+</h2>
+
+<p style="font-size:14px; color:#333;">
+  <strong><%= name %></strong> has requested the following changes:
+</p>
+
+<% if (dataobj && dataobj.length > 0) { %>
+
+  <table width="100%" cellpadding="8" cellspacing="0"
+         style="border-collapse: collapse; font-size:14px; margin-top:15px; border:1px solid #ddd;">
+    
+    <thead>
+      <tr style="background:#f4f6f8;">
+        <th align="left" style="border:1px solid #ddd;">Field</th>
+        <th align="left" style="border:1px solid #ddd;">Old Value</th>
+        <th align="left" style="border:1px solid #ddd;">Requested Value</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% dataobj.forEach(function(item, index){ %>
+        <% if (index % 2 === 0) { %>
+            <tr style="background:#ffffff;">
+        <% } else { %>
+            <tr style="background:#fafafa;">
+        <% } %>
+          <td style="border:1px solid #ddd;">
+            <%= item.column %>
+          </td>
+          <td style="border:1px solid #ddd; color:#666;">
+            <%= item.current_record || '-' %>
+          </td>
+          <td style="border:1px solid #ddd; font-weight:500;">
+            <%= item.new_record || '-' %>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+
+  </table>
+
+<% } %>
+
+<p style="font-size:14px; margin-top:20px;">
+  Please review and approve this request.
+</p>

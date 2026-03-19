@@ -1,0 +1,59 @@
+<p style="margin:0 0 15px 0;">
+  Dear <%= name %>,
+</p>
+
+<p style="font-size:14px; color:#333; margin:0 0 12px 0;">
+  <%= message %>
+</p>
+
+<% if (actionType === 'create') { %>
+  <p style="font-size:14px; color:#333;">
+    <strong>Username:</strong> <%= username %>
+  </p>
+
+  <p style="font-size:14px; color:#333;">
+    For security reasons, we do not send passwords by email.
+  </p>
+<% } %>
+<% if (editedFields && editedFields.length > 0) { %>
+
+  <table width="100%" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-size:14px; margin-top:15px;">
+    
+    <thead>
+      <tr style="background:#f2f2f2;">
+        <th align="left" style="border:1px solid #ddd;">Column</th>
+        <th align="left" style="border:1px solid #ddd;">Old</th>
+        <th align="left" style="border:1px solid #ddd;">New</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% editedFields.forEach(function(field){ %>
+        <tr>
+          <td style="border:1px solid #ddd;">
+            <%= field.column %>
+          </td>
+          <td style="border:1px solid #ddd;">
+            <%= field.current_record || '-' %>
+          </td>
+          <td style="border:1px solid #ddd;">
+            <%= field.new_record || '-' %>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>
+
+<div style="text-align:center; margin:25px 0;">
+  <a href="<%= loginUrl %>"> Login to ClasInfo Pro </a>
+</div>
+
+<p style="font-size:13px; color:#555;">
+  If you did not request this action, please contact our support team immediately.
+</p>
+
+<p style="font-size:13px; color:#555;">
+  Thanks,<br/>
+  <strong>ClasInfo Pro Security Team</strong>
+</p>

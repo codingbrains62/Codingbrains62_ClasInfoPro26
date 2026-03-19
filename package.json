@@ -1,0 +1,11 @@
+{
+  "name": "clasinfopro26",
+  "version": "1.0.0",
+  "scripts": {
+   "dev": "kill-port 1337 5173 && concurrently \"cd backend && sails lift\" \"cd frontend && npm run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "kill-port": "^2.0.1"
+  }
+}

@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+
+  backend:
+    build: ./backend
+    container_name: clasinfo_backend
+    ports:
+      - "1337:1337"
+    environment:
+      DB_HOST: host.docker.internal
+      DB_PORT: 1433
+      DB_NAME: ClasInfoPro26
+      DB_USER: cip_user
+      DB_PASSWORD: Cip@12345
+    command: npm start
+  frontend:
+    build: ./frontend
+    container_name: clasinfo_frontend
+    ports:
+      - "5173:5173"
+    environment:
+    - VITE_PROXY_TARGET=http://backend:1337
+    volumes:
+      - ./frontend:/app
+    command: npm run dev -- --host
