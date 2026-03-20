@@ -10,42 +10,56 @@ module.exports = {
   inputs: {
 
     template: {
-      description: 'Template name inside views/emailTemplates (without .ejs)',
       type: 'string',
       required: true
     },
 
     templateData: {
-      description: 'Data accessible inside EJS template',
       type: 'ref',
       defaultsTo: {}
     },
 
     layout: {
-      description: 'Layout file inside views/layouts (without .ejs). Set false to disable layout.',
       type: 'ref',
       defaultsTo: 'layout-email'
     }
 
   },
 
-  fn: async function (inputs) {
+  exits: {
+    success: {
+      description: 'Template rendered successfully'
+    }
+  },
 
-    const templatePath = path.resolve( sails.config.appPath, 'views/emailTemplates', `${inputs.template}.ejs` );
-    // 1️⃣ Render main template (body)
+  fn: async function (inputs, exits) {
+
+    const templatePath = path.resolve(
+      sails.config.appPath,
+      'views/emailTemplates',
+      `${inputs.template}.ejs`
+    );
+
     const bodyHtml = await ejs.renderFile(
       templatePath,
       inputs.templateData
     );
-    // 2️⃣ If layout disabled, return body only
+
     if (inputs.layout === false) {
-      return bodyHtml;
+      return exits.success(bodyHtml);
     }
-    // 3️⃣ Render layout
-    const layoutPath = path.resolve( sails.config.appPath, 'views/layouts', `${inputs.layout}.ejs`);
-    const finalHtml = await ejs.renderFile( layoutPath,
-      {...inputs.templateData,  body: bodyHtml}
+
+    const layoutPath = path.resolve(
+      sails.config.appPath,
+      'views/layouts',
+      `${inputs.layout}.ejs`
     );
-    return finalHtml;
+
+    const finalHtml = await ejs.renderFile(
+      layoutPath,
+      { ...inputs.templateData, body: bodyHtml }
+    );
+
+    return exits.success(finalHtml);
   }
 };
